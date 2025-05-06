@@ -1,0 +1,49 @@
+// {
+//   "include": ["client/src/**/*", "shared/**/*", "server/**/*"],
+//   "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
+//   "compilerOptions": {
+//     "incremental": true,
+//     "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
+//     "noEmit": true,
+//     "module": "ESNext",
+//     "strict": true,
+//     "lib": ["esnext", "dom", "dom.iterable"],
+//     "jsx": "preserve",
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "allowImportingTsExtensions": true,
+//     "moduleResolution": "bundler",
+//     "baseUrl": ".",
+//     "types": ["node", "vite/client"],
+//     "paths": {
+//       "@/*": ["./client/src/*"],
+//       "@shared/*": ["./shared/*"]
+//     }
+//   }
+// }
+{
+  "include": ["client/src/**/*", "shared/**/*", "server/**/*"], // Ensure all source files are included
+  "exclude": ["node_modules", "build", "dist", "**/*.test.ts"], // Exclude unnecessary directories and test files
+  "compilerOptions": {
+    "incremental": true, // Enable incremental builds
+    "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo", // Path for TypeScript build information
+    "noEmit": true, // Do not emit files (only type-checking)
+    "module": "ESNext", // Enable top-level `await` and modern modules
+    "target": "ES2017", // Ensure compatibility with `async/await`
+    "strict": true, // Enable strict type-checking options
+    "lib": ["esnext", "dom", "dom.iterable"], // Include modern libraries for JavaScript features and DOM
+    "jsx": "preserve", // Preserve JSX for React
+    "esModuleInterop": true, // Allows ES module and CommonJS interop
+    "skipLibCheck": true, // Skip checking library declaration files
+    "allowImportingTsExtensions": true, // Allow importing TypeScript extensions (.ts, .tsx)
+    "moduleResolution": "bundler", // Ensure bundler-style resolution (compatible with Vite)
+    "baseUrl": ".", // Base directory for resolving non-relative imports
+    "types": ["node", "vite/client"], // Include types for Node and Vite client
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@/*": ["./client/src/*"], // Path alias for client
+      "@shared/*": ["./shared/*"] // Path alias for shared resources
+    }
+  }
+}

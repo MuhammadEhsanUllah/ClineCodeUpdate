@@ -22,7 +22,7 @@
 //   }
 // }
 {
-  "include": ["client/src/**/*", "shared/**/*", "server/**/*"], // Ensure all source files are included
+  "include": ["src/**/*", "shared/**/*"], // Ensure all source files are included
   "exclude": ["node_modules", "build", "dist", "**/*.test.ts"], // Exclude unnecessary directories and test files
   "compilerOptions": {
     "incremental": true, // Enable incremental builds
@@ -42,7 +42,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@/*": ["./client/src/*"], // Path alias for client
+      "@/*": ["./src/*"], // Path alias for client
       "@shared/*": ["./shared/*"] // Path alias for shared resources
     }
   }

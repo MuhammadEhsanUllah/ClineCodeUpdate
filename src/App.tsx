@@ -13,7 +13,7 @@ import Signup from "@/pages/signup";
 import Gallery from "@/pages/gallery";
 import Parts from "@/pages/parts";
 import Extras from "@/pages/extras";
-// import FenceAndGates from "@/pages/fence-and-gates";
+// import FenceAndGates from "@/pages/fence-and-gates";/
 import CustomGate from "@/pages/custom-gate";
 import CustomFence from "@/pages/custom-fence";
 import Cart from "@/pages/cart";
@@ -23,40 +23,12 @@ import { CartProvider } from "./hooks/use-cart";
 import { ApiKeyProvider } from "./hooks/use-api-key";
 import ApiKeyDialog from "./components/api-key-dialog";
 
-// This hook helps set up base path handling and navigation
-function useBasePath() {
-  // Get base path from environment or default to '/'
-  const basePath = import.meta.env.VITE_BASE_PATH || "/";
-
-  // Function to create full path with base path
-  const createPath = (path: string) => {
-    // If path is already the base path, return it
-    if (path === basePath) return path;
-
-    // Strip trailing slash from base path and leading slash from path
-    const normalizedBase = basePath.endsWith("/")
-      ? basePath.slice(0, -1)
-      : basePath;
-
-    const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-
-    return `${normalizedBase}${normalizedPath}`;
-  };
-
-  return { basePath, createPath };
-}
-
 function Router() {
   const [location] = useLocation();
-  const { basePath } = useBasePath();
-
-  // Determine if we should show header/footer based on current location
-  const hideHeaderFooter = ["/login", "/signup"].includes(location);
-  console.log("Base path:", basePath);
   return (
     <>
       {/* Conditionally render Header and Footer based on the current route */}
-      {!hideHeaderFooter && <Header />}
+      {!["/login", "/signup"].includes(location) && <Header />}
 
       <Switch>
         <Route path="/login" component={Login} />
@@ -74,8 +46,8 @@ function Router() {
         <Route path="/cart" component={Cart} />
         <Route component={NotFound} />
       </Switch>
-
-      {!hideHeaderFooter && <Footer />}
+      {!["/login", "/signup"].includes(location) && <Footer />}
+      {/* <Footer /> */}
     </>
   );
 }

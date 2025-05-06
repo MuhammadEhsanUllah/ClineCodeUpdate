@@ -12,24 +12,6 @@
       rel="stylesheet"
     />
     <title>SecureGates | Custom Gates Made in America</title>
-    
-    <!-- Handle redirect from 404.html -->
-    <script>
-      // Check if we need to redirect to a specific path (from 404.html)
-      (function() {
-        var redirectPath = sessionStorage.getItem('redirectPath');
-        if (redirectPath) {
-          // Clear the redirect path from sessionStorage
-          sessionStorage.removeItem('redirectPath');
-          
-          // Only redirect if we're on the home page but need to be elsewhere
-          if (window.location.pathname === '/' && redirectPath !== '/') {
-            // Use history API to navigate without page reload
-            window.history.replaceState(null, null, redirectPath);
-          }
-        }
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>
